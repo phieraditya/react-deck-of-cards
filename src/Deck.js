@@ -20,8 +20,9 @@ class Deck extends Component {
       const { deck_id } = this.state.deck;
       const cardRes = await axios.get(`${API_BASE_URL}${deck_id}/draw/`);
 
-      // guard clause: check if there is remaining card in the deck
-      if (cardRes.data.remaining === 0) {
+      // check if there is remaining card in the deck
+      // (if cards = [] or success = false)
+      if (!cardRes.data.success) {
         throw new Error('No card remaining!');
       }
 
@@ -37,8 +38,10 @@ class Deck extends Component {
           },
         ],
       }));
-      console.log(cardRes.data.remaining);
-      console.log(this.state.drawn);
+
+      console.log(cardRes.data);
+      // console.log(cardRes.data.remaining);
+      // console.log(this.state.drawn);
     } catch (err) {
       alert(err);
     }
