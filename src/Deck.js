@@ -38,10 +38,6 @@ class Deck extends Component {
           },
         ],
       }));
-
-      console.log(cardRes.data);
-      // console.log(cardRes.data.remaining);
-      // console.log(this.state.drawn);
     } catch (err) {
       alert(err);
     }
@@ -51,7 +47,7 @@ class Deck extends Component {
       <div>
         <h1>CARD DEALER</h1>
         <button onClick={this.getCard}>DEAL ME A CARD!</button>
-        <Card />
+        <Card drawn={this.state.drawn} />
       </div>
     );
   }
