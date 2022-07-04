@@ -48,9 +48,11 @@ class Deck extends Component {
       <Card key={d.id} image={d.image} name={d.name} />
     ));
     return (
-      <div>
-        <h1>CARD DEALER</h1>
-        <button onClick={this.getCard}>DEAL ME A CARD!</button>
+      <div className="Deck">
+        <h1 className="Deck-title">♦ CARD DEALER ♦</h1>
+        <button className="Deck-btn" onClick={this.getCard}>
+          DEAL ME A CARD!
+        </button>
         <div className="Deck-card-area">{cards}</div>
       </div>
     );
